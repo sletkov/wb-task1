@@ -1,0 +1,31 @@
+.navigation__panel {
+    display: none;
+    background-color: #fff;
+    padding: 14px;
+}
+
+@media(max-width: 749px) {
+    .navigation__panel {
+        display: block;
+    }
+
+    .navigation__item {
+        list-style: none;
+    }
+
+    .navigation__list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navigation__link {
+        display: flex;
+        align-items: center;
+        justify-items: center;
+    }
+    .navigation__img {
+        width: 28px;
+        height: 28px;
+    }
+}

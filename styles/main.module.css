@@ -1,0 +1,39 @@
+@import url("/styles/cart.module.css");
+@import url("/styles/absent-goods.module.css");
+@import url("/styles/delivery-method.module.css");
+@import url("/styles/payment-method.module.css");
+@import url("/styles/recipient.module.css");
+
+.main {
+    width: 60%;
+}
+
+/* MAIN START */
+
+/* html {
+    max-width: 100vw;
+} */
+.body {
+    background-color: #6725A8;
+}
+
+.main__wrapper {
+    display: flex;
+    justify-content: space-between;
+    background-color: #F6F6FA;
+    border-radius: 24px;
+    padding-bottom: 50px;
+}
+
+@media(max-width: 995px) {
+    .main__wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main {
+        width: 100%;
+        /* padding: 16px; */
+    }
+}
+/* MAIN END */

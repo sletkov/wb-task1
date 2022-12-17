@@ -1,0 +1,10 @@
+@import url('../fonts//SegoeUI.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+

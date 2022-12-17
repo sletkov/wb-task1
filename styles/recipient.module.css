@@ -1,0 +1,177 @@
+.recipient {
+    background-color: #fff;
+    margin-top: 56px;
+    padding: 16px 24px 43px 24px;
+    border-radius: 16px;
+}
+
+.recipient__heading {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.recipient__form {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.recipient__label {
+    margin-bottom: 2px;
+    display: none;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: #A0A0A4;
+}
+
+
+.recipient__name {
+    position: relative;
+    height: 46px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 34px;
+    width: 48%;
+}
+
+.recipient__surname {
+    position: relative;
+    height: 46px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 34px;
+    width: 48%;
+    position: relative;
+}
+
+.recipient__email {
+    position: relative;
+    height: 46px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 34px;
+    width: 31%;
+}
+
+.recipient__phone {
+    position: relative;
+    height: 46px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 34px;
+    width: 31%;
+}
+
+.recipient__inn {
+    position: relative;
+    height: 46px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 34px;
+    width: 32%;
+}
+
+.recipient__name-input {
+    width: 100%;
+    background: none;
+    color: #A0A0A4;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.recipient__surname-input {
+    width: 100%;
+    background: none;
+    color: #A0A0A4;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.recipient__email-input {
+    width: 100%;
+    background: none;
+    color: #A0A0A4;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.recipient__phone-input {
+    width: 100%;
+    background: none;
+    color: #A0A0A4;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.recipient__inn-input {
+    width: 100%;
+    background: none;
+    color: #A0A0A4;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.recipient__inn__prompt {
+    position: absolute;
+    top: 46px;
+    margin-top: 4px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.input__error-text {
+    position: absolute;
+    display: none;
+    margin-top: 4px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #F55123;
+    top: 46px;
+}
+
+
+@media(max-width: 604px) {
+    .recipient {
+        margin-top: 12px;
+    }
+
+    .recipient__form {
+        flex-direction: column;
+        margin-top: 0;
+    }
+
+    .recipient__name, .recipient__surname, .recipient__email, .recipient__phone, .recipient__inn {
+        width: 100%;
+    }
+
+    .recipient__heading {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 28px;
+    }
+}
