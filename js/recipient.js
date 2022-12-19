@@ -98,7 +98,7 @@ const emailError = document.querySelector('#email-error');
 const phoneError = document.querySelector('#phone-error');
 const innError = document.querySelector('#inn-error');
 
-nameInput.addEventListener('input', (e) => {
+nameInput.addEventListener('change', (e) => {
     if (!validateName(e.target.value)) {
         nameError.style.display = "block";
         nameInput.style.color = "#F55123";
@@ -108,7 +108,14 @@ nameInput.addEventListener('input', (e) => {
     }
 });
 
-surnameInput.addEventListener('input', (e) => {
+nameInput.addEventListener('input', (e) => {
+    if (validateName(e.target.value)) {
+        nameError.style.display = "none";
+        nameInput.style.color = "#A0A0A4";
+    }
+});
+
+surnameInput.addEventListener('change', (e) => {
     if (!validateSurname(e.target.value)) {
         surnameError.style.display = "block";
         surnameInput.style.color = "#F55123";
@@ -118,7 +125,14 @@ surnameInput.addEventListener('input', (e) => {
     }
 });
 
-emailInput.addEventListener('input', (e) => {
+surnameInput.addEventListener('input', (e) => {
+    if (validateSurname(e.target.value)) {
+        surnameError.style.display = "none";
+        surnameInput.style.color = "#A0A0A4";
+    }
+});
+
+emailInput.addEventListener('change', (e) => {
     if (!validateEmail(e.target.value)) {
         emailError.style.display = "block";
         emailInput.style.color = "#F55123";
@@ -128,7 +142,14 @@ emailInput.addEventListener('input', (e) => {
     }
 });
 
-phoneInput.addEventListener('input', (e) => {
+emailInput.addEventListener('input', (e) => {
+    if (validateEmail(e.target.value)) {
+        emailError.style.display = "none";
+        emailInput.style.color = "#A0A0A4";
+    }
+});
+
+phoneInput.addEventListener('change', (e) => {
     if (!validatePhone(e.target.value)) {
         phoneError.style.display = "block";
         phoneInput.style.color = "#F55123";
@@ -138,12 +159,27 @@ phoneInput.addEventListener('input', (e) => {
     }
 });
 
-innInput.addEventListener('input', (e) => {
+phoneInput.addEventListener('input', (e) => {
+    if (validatePhone(e.target.value)) {
+        phoneError.style.display = "none";
+        phoneInput.style.color = "#A0A0A4";
+    }
+});
+
+innInput.addEventListener('change', (e) => {
     if (!validateInn(e.target.value)) {
         innError.style.display = "block";
         innInput.style.color = "#F55123";
         innPrompt.style.display = "none";
     } else {
+        innError.style.display = "none";
+        innInput.style.color = "#A0A0A4";
+        innPrompt.style.display = "block";
+    }
+});
+
+innInput.addEventListener('input', (e) => {
+    if (validateInn(e.target.value)) {
         innError.style.display = "none";
         innInput.style.color = "#A0A0A4";
         innPrompt.style.display = "block";
@@ -190,7 +226,7 @@ const validatePhone = (phone) => {
         return String(phone)
         .toLowerCase()
         .match(
-            /^[+]{1}[1-9]{1}[\s][1-9]{3}[\s][1-9]{3}[\s][1-9]{2}[\s][1-9]{2}$/
+            /^[+]{1}[1-9]{1}[\s][0-9]{3}[\s][0-9]{3}[\s][0-9]{2}[\s][0-9]{2}$/
         ) !== null;
     }
 

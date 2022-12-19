@@ -12,14 +12,18 @@ minusBtn1.addEventListener('click', () => {
     if(+count1.value > 1) {
         plusBtn1.disabled = false;
         +count1.value--;
-
+        oldCount1--;
         price1.textContent = +price1.textContent - 522;
         oldPrice1.textContent = +oldPrice1.textContent - 1051;
 
-        +totalGoodsCount.textContent--;
-        totalSum1.textContent = +totalSum1.textContent - 522;
-        totalSum2.textContent = +totalSum2.textContent - 522;
-        totalSale.textContent = +totalSale.textContent - (1051 - 522);
+
+        if (goodCheckbox1.checked) {
+            +totalGoodsCount.textContent--;
+            totalSum1.textContent = +totalSum1.textContent - 522;
+            totalSum2.textContent = +totalSum2.textContent - 1051;
+            totalSale.textContent = +totalSale.textContent + (1051 - 522);
+        }
+
 
         if (+count1.value == 1) {
             minusBtn1.disabled = true;
@@ -34,15 +38,18 @@ minusBtn1.addEventListener('click', () => {
 plusBtn1.addEventListener('click', () => {
     if(+count1.value < 2) {
         minusBtn1.disabled = false;
-
         +count1.value++;
+        oldCount1++;
         price1.textContent = +price1.textContent + 522;
         oldPrice1.textContent = +oldPrice1.textContent + 1051;
     
-        +totalGoodsCount.textContent++;
-        totalSum1.textContent = +totalSum1.textContent + 522;
-        totalSum2.textContent = +totalSum2.textContent + 522;
-        totalSale.textContent = +totalSale.textContent + (1051 - 522);
+        if (goodCheckbox1.checked) {
+            +totalGoodsCount.textContent++;
+            totalSum1.textContent = +totalSum1.textContent + 522;
+            totalSum2.textContent = +totalSum2.textContent + 1051;
+            totalSale.textContent = +totalSale.textContent - (1051 - 522);
+        }
+
 
         if(+count1.value == 2) {
             plusBtn1.disabled = true;
@@ -67,14 +74,16 @@ minusBtn2.addEventListener('click', () => {
     if(+count2.value > 1) {
         plusBtn2.disabled = false;
         +count2.value--;
-
+        oldCount2--;
         price2.textContent = +price2.textContent - 10500;
         oldPrice2.textContent = +oldPrice2.textContent - 11500;
 
-        +totalGoodsCount.textContent--;
-        totalSum1.textContent = +totalSum1.textContent - 10500;
-        totalSum2.textContent = +totalSum2.textContent - 10500;
-        totalSale.textContent = +totalSale.textContent - (11500 - 10500);
+        if (goodCheckbox2.checked) {
+            +totalGoodsCount.textContent--;
+            totalSum1.textContent = +totalSum1.textContent - 10500;
+            totalSum2.textContent = +totalSum2.textContent - 10500;
+            totalSale.textContent = +totalSale.textContent + (11500 - 10500);
+        }
 
         if (+count2.value == 1) {
             minusBtn2.disabled = true;
@@ -90,14 +99,16 @@ plusBtn2.addEventListener('click', () => {
     if (+count2.value < 300) {
         minusBtn2.disabled = false;
         +count2.value++;
-
+        oldCount2++;
         price2.textContent = +price2.textContent + 10500;
         oldPrice2.textContent = +oldPrice2.textContent + 11500;
     
-        +totalGoodsCount.textContent++;
-        totalSum1.textContent = +totalSum1.textContent + 10500;
-        totalSum2.textContent = +totalSum2.textContent + 10500;
-        totalSale.textContent = +totalSale.textContent + (11500 - 10500);
+        if (goodCheckbox2.checked) {
+            +totalGoodsCount.textContent++;
+            totalSum1.textContent = +totalSum1.textContent + 10500;
+            totalSum2.textContent = +totalSum2.textContent + 10500;
+            totalSale.textContent = +totalSale.textContent - (11500 - 10500);
+        }
 
         if (+count2.value == 300) {
             plusBtn2.disabled = true;
@@ -121,14 +132,16 @@ minusBtn3.addEventListener('click', () => {
     if(+count3.value > 1) {
         plusBtn3.disabled = false;
         +count3.value--;
-
+        oldCount3--;
         price3.textContent = +price3.textContent - 247;
         oldPrice3.textContent = +oldPrice3.textContent - 475;
 
-        +totalGoodsCount.textContent--;
-        totalSum1.textContent = +totalSum1.textContent - 247;
-        totalSum2.textContent = +totalSum2.textContent - 247;
-        totalSale.textContent = +totalSale.textContent - (475 - 247);
+        if (goodCheckbox3.checked) {
+            +totalGoodsCount.textContent--;
+            totalSum1.textContent = +totalSum1.textContent - 247;
+            totalSum2.textContent = +totalSum2.textContent - 247;
+            totalSale.textContent = +totalSale.textContent + (475 - 247);
+        }
 
         if (+count3.value == 1) {
             minusBtn3.disabled = true;
@@ -144,14 +157,16 @@ plusBtn3.addEventListener('click', () => {
     if (+count3.value < 2) {
         minusBtn3.disabled = false;
         +count3.value++;
-
+        oldCount2++;
         price3.textContent = +price3.textContent + 247;
         oldPrice3.textContent = +oldPrice3.textContent + 475;
     
-        +totalGoodsCount.textContent++;
-        totalSum1.textContent = +totalSum1.textContent + 247;
-        totalSum2.textContent = +totalSum2.textContent + 247;
-        totalSale.textContent = +totalSale.textContent + (475 - 247);
+        if(goodCheckbox3.checked) {
+            +totalGoodsCount.textContent++;
+            totalSum1.textContent = +totalSum1.textContent + 247;
+            totalSum2.textContent = +totalSum2.textContent + 247;
+            totalSale.textContent = +totalSale.textContent - (475 - 247);
+        }
 
         if (+count3.value == 2) {
             plusBtn3.disabled = true;
@@ -164,15 +179,33 @@ plusBtn3.addEventListener('click', () => {
    
 });
 
+//Save old counts value
+let oldCount1 = +count1.value;
+let oldCount2 = +count2.value;
+let oldCount3 = +count3.value;
+
 //CHANGE COUNTS BY INPUT
 count1.addEventListener('change', (e) => {
-    if(!isNaN(count1.value) && +count1.value <= 2 && +count1.value >= 1 && Number.isInteger(+count1.value)) {
+    if(!isNaN(+count1.value) && +count1.value <= 2 && +count1.value >= 1 && Number.isInteger(+count1.value)) {
         count1.value = e.target.value;
         price1.textContent = count1.value * 522;
         oldPrice1.textContent = count1.value * 1051;
-        totalSum1.textContent = count1.value * 522 + count2.value * 10500 + count3.value * 247;
-        totalSum2.textContent = count1.value * 522 + count2.value * 10500 + count3.value * 247;
-        totalSale.textContent = count1.value * (1051-522) + count2.value * (11500 - 10500) + count3.value * (475 - 247);
+
+        if(goodCheckbox1.checked) {
+            if(e.target.value > oldCount1) {
+                totalGoodsCount.textContent = +totalGoodsCount.textContent + (+count1.value - oldCount1)
+                totalSum1.textContent = +totalSum1.textContent + (+count1.value - oldCount1) * 522;
+                totalSum2.textContent = +totalSum2.textContent + (+count1.value - oldCount1) * 1051;
+                totalSale.textContent = +totalSale.textContent - (+count1.value - oldCount1) * (1051 - 522);
+                oldCount1 = +e.target.value;
+            } else if (e.target.value < oldCount1) {
+                totalGoodsCount.textContent = +totalGoodsCount.textContent - +count1.value;
+                totalSum1.textContent = +totalSum1.textContent - (oldCount1 - +count1.value) * 522;
+                totalSum2.textContent = +totalSum2.textContent - (oldCount1 - +count1.value) * 1051;
+                totalSale.textContent = +totalSale.textContent + (oldCount1 - +count1.value ) * (1051 - 522);
+                oldCount1 = +e.target.value;
+            }
+        }
 
         if(payNowCheckbox.checked) {
             orderBtn.textContent = `Оплатить ${totalSum1.textContent} сом`;
@@ -186,22 +219,35 @@ count1.addEventListener('change', (e) => {
             minusBtn1.disabled = false;
         }
     } else {
-        count1.value = 1;
+        count1.value = oldCount1;
     }
 
 });
 
 count2.addEventListener('change', (e) => {
-    if(!isNaN(count2.value) && +count2.value <= 300 && +count2.value >= 1 && Number.isInteger(+count2.value)) {
-        if(+count2.value > 1 && +count2.value < 300)
+    if(!isNaN(+count2.value) && +count2.value <= 300 && +count2.value >= 1 && Number.isInteger(+count2.value)) {
         minusBtn2.disabled = false;
         plusBtn2.disabled = false;
         count2.value = e.target.value;
         price2.textContent = count2.value * 10500;
         oldPrice2.textContent = count2.value * 11500;
-        totalSum1.textContent = count1.value * 522 + count2.value * 10500 + count3.value * 247;
-        totalSum2.textContent = count1.value * 522 + count2.value * 10500 + count3.value * 247;
-        totalSale.textContent = count1.value * (1051-522) + count2.value * (11500 - 10500) + count3.value * (475 - 247);
+
+        if(goodCheckbox2.checked) {
+            if(e.target.value > oldCount2) {
+                totalGoodsCount.textContent = +totalGoodsCount.textContent + (+count2.value - oldCount2);
+                totalSum1.textContent = +totalSum1.textContent + (+count2.value - oldCount2) * 10500;
+                totalSum2.textContent = +totalSum2.textContent + (+count2.value - oldCount2) * 11500;
+                totalSale.textContent = +totalSale.textContent - (+count2.value - oldCount2) * (11500 - 10500);
+                oldCount2 = +e.target.value;
+            } else if (e.target.value < oldCount2) {
+                totalGoodsCount.textContent = +totalGoodsCount.textContent - (oldCount2 - +count2.value);
+                totalSum1.textContent = +totalSum1.textContent - (oldCount2 - +count2.value) * 10500;
+                totalSum2.textContent = +totalSum2.textContent - (oldCount2 - +count2.value) * 11500;
+                totalSale.textContent = +totalSale.textContent + (oldCount2 - +count2.value) * (11500 - 10500);
+                oldCount2 = +e.target.value;
+            }
+
+        }
 
         if(payNowCheckbox.checked) {
             orderBtn.textContent = `Оплатить ${totalSum1.textContent} сом`;
@@ -214,8 +260,8 @@ count2.addEventListener('change', (e) => {
             plusBtn2.disabled = true;
             minusBtn2.disabled = false;
         }
-    } else {
-        count2.value = 200;
+    }else {
+        count2.value = oldCount2;
     }
 });
 
@@ -224,9 +270,23 @@ count3.addEventListener('change', (e) => {
         count3.value = e.target.value;
         price3.textContent = count3.value * 247;
         oldPrice3.textContent = count3.value * 475;
-        totalSum1.textContent = count1.value * 522 + count2.value * 10500 + count3.value * 247;
-        totalSum2.textContent = count1.value * 522 + count2.value * 10500 + count3.value * 247;
-        totalSale.textContent = count1.value * (1051-522) + count2.value * (11500 - 10500) + count3.value * (475 - 247);
+
+        if (goodCheckbox3.checked) {
+            if(e.target.value > oldCount3) {
+                totalGoodsCount.textContent = +totalGoodsCount.textContent + (+count3.value - oldCount3);
+                totalSum1.textContent = +totalSum1.textContent + (+count3.value - oldCount3) * 247;
+                totalSum2.textContent = +totalSum2.textContent + (+count3.value - oldCount3) * 475;
+                totalSale.textContent = +totalSale.textContent - (+count3.value - oldCount3) * (475 - 247);
+                oldCount3 = +e.target.value;
+            } else if (e.target.value < oldCount3) {
+                totalGoodsCount.textContent = +totalGoodsCount.textContent - (oldCount3 - +count3.value);
+                totalSum1.textContent = +totalSum1.textContent - (oldCount3 - +count3.value) * 247;
+                totalSum2.textContent = +totalSum2.textContent - (oldCount3 - +count3.value) * 475;
+                totalSale.textContent = +totalSale.textContent + (oldCount3 - +count3.value) * (475 - 247);
+                oldCount3 = +e.target.value;
+            }
+        }
+
 
         if(payNowCheckbox.checked) {
             orderBtn.textContent = `Оплатить ${totalSum1.textContent} сом`;
@@ -240,7 +300,7 @@ count3.addEventListener('change', (e) => {
             minusBtn3.disabled = false;
         }
     } else {
-        count3.value = 2;
+        count3.value = oldCount3;
     }
 });
 
@@ -255,10 +315,101 @@ selectAllCheckbox.addEventListener('change', (e) => {
         goodCheckbox1.checked = true;
         goodCheckbox2.checked = true;
         goodCheckbox3.checked = true;
+
+        totalSum1.textContent = +totalSum1.textContent + +price1.textContent + +price2.textContent + +price3.textContent;
+        totalSum2.textContent = +totalSum2.textContent + +oldPrice1.textContent + +oldPrice2.textContent + +oldPrice3.textContent;
+        totalGoodsCount.textContent = +totalGoodsCount.textContent + +count1.value + +count2.value + +count3.value;
+        totalSale.textContent = +totalSale.textContent - (+oldPrice1.textContent - price1.textContent) - (+oldPrice2.textContent - +price2.textContent) - (+oldPrice3.textContent - +price3.textContent);
     } else {
         goodCheckbox1.checked = false;
         goodCheckbox2.checked = false;
         goodCheckbox3.checked = false;
+
+        totalSum1.textContent = +totalSum1.textContent - +price1.textContent - +price2.textContent - +price3.textContent;
+        totalSum2.textContent = +totalSum2.textContent - +oldPrice1.textContent - +oldPrice2.textContent - +oldPrice3.textContent;
+        totalGoodsCount.textContent = +totalGoodsCount.textContent - +count1.value - +count2.value - +count3.value;
+        totalSale.textContent = +totalSale.textContent + (+oldPrice1.textContent - price1.textContent) + (+oldPrice2.textContent - +price2.textContent) + (+oldPrice3.textContent - +price3.textContent);
+    }
+
+    if (payNowCheckbox.checked) {
+        orderBtn.textContent = `Оплатить ${totalSum1.textContent} cом`;
+    }
+});
+
+
+//HANDLE ADDING PRICE TO ORDER BY CHECKED CHECKBOX
+goodCheckbox1.addEventListener('change', (e) => {
+    if(e.target.checked === true) {
+        totalSum1.textContent = +totalSum1.textContent + +price1.textContent;
+        totalSum2.textContent = +totalSum2.textContent + +oldPrice1.textContent;
+        totalGoodsCount.textContent = +totalGoodsCount.textContent + +count1.value;
+        totalSale.textContent = +totalSale.textContent - (+oldPrice1.textContent - +price1.textContent);
+
+        if(goodCheckbox2.checked === true && goodCheckbox3.checked === true) {
+            selectAllCheckbox.checked = true;
+        }
+
+    } else {
+        totalSum1.textContent = +totalSum1.textContent - +price1.textContent;
+        totalSum2.textContent = +totalSum2.textContent - +oldPrice1.textContent;
+        totalGoodsCount.textContent = +totalGoodsCount.textContent - +count1.value;
+        totalSale.textContent = +totalSale.textContent + (+oldPrice1.textContent - +price1.textContent);
+
+        selectAllCheckbox.checked = false;
+    }
+
+    if (payNowCheckbox.checked) {
+        orderBtn.textContent = `Оплатить ${totalSum1.textContent} cом`;
+    }
+
+});
+
+goodCheckbox2.addEventListener('change', (e) => {
+    if(e.target.checked === true) {
+        totalSum1.textContent = +totalSum1.textContent + +price2.textContent;
+        totalSum2.textContent = +totalSum2.textContent + +oldPrice2.textContent;
+        totalGoodsCount.textContent = +totalGoodsCount.textContent + +count2.value;
+        totalSale.textContent = +totalSale.textContent - (+oldPrice2.textContent - +price2.textContent);
+
+        if(goodCheckbox1.checked === true && goodCheckbox3.checked === true) {
+            selectAllCheckbox.checked = true;
+        }
+
+    } else {
+        totalSum1.textContent = +totalSum1.textContent - +price2.textContent;
+        totalSum2.textContent = +totalSum2.textContent - +oldPrice2.textContent;
+        totalGoodsCount.textContent = +totalGoodsCount.textContent - +count2.value;
+        totalSale.textContent = +totalSale.textContent + (+oldPrice2.textContent - +price2.textContent);
+        
+        selectAllCheckbox.checked = false;
+    }
+
+    if (payNowCheckbox.checked) {
+        orderBtn.textContent = `Оплатить ${totalSum1.textContent} cом`;
+    }
+});
+
+goodCheckbox3.addEventListener('change', (e) => {
+    if(e.target.checked === true) {
+        totalSum1.textContent = +totalSum1.textContent + +price3.textContent;
+        totalSum2.textContent = +totalSum2.textContent + +oldPrice3.textContent;
+        totalGoodsCount.textContent = +totalGoodsCount.textContent + +count3.value;
+        totalSale.textContent = +totalSale.textContent - (+oldPrice3.textContent - +price3.textContent);
+
+        if(goodCheckbox1.checked === true && goodCheckbox2.checked === true) {
+            selectAllCheckbox.checked = true;
+        }
+    } else {
+        totalSum1.textContent = +totalSum1.textContent - +price3.textContent;
+        totalSum2.textContent = +totalSum2.textContent - +oldPrice3.textContent;
+        totalGoodsCount.textContent = +totalGoodsCount.textContent - +count3.value;
+        totalSale.textContent = +totalSale.textContent + (+oldPrice3.textContent - +price3.textContent);
+        
+        selectAllCheckbox.checked = false;
+    }
+
+    if (payNowCheckbox.checked) {
+        orderBtn.textContent = `Оплатить ${totalSum1.textContent} cом`;
     }
 });
 
@@ -280,14 +431,53 @@ const goodCard6 = document.querySelector('#good-card6');
 
 deleteBtn1.addEventListener('click', () => {
     goodCard1.style.display = "none";
+    if (goodCheckbox1.checked) {
+        totalGoodsCount.textContent = +totalGoodsCount.textContent - +count1.value;
+        totalSum1.textContent = +totalSum1.textContent - +count1.value * 522;
+        totalSum2.textContent = +totalSum2.textContent - +count1.value * 1051;
+        totalSale.textContent = +totalSale.textContent + +count1.value * (1051 - 522);
+    }
+    count1.value = 0;
+    price1.textContent = 0;
+    oldPrice1.textContent = 0;
+
+    if (payNowCheckbox.checked) {
+        orderBtn.textContent = `Оплатить ${totalSum1.textContent} cом`;
+    }
 });
 
 deleteBtn2.addEventListener('click', () => {
     goodCard2.style.display = "none";
+    if (goodCheckbox2.checked) {
+        totalGoodsCount.textContent = +totalGoodsCount.textContent - +count2.value;
+        totalSum1.textContent = +totalSum1.textContent - +count2.value * 10500;
+        totalSum2.textContent = +totalSum2.textContent - +count2.value * 11500;
+        totalSale.textContent = +totalSale.textContent + +count2.value * (11500 - 10500);
+    }
+    count2.value = 0;
+    price2.textContent = 0;
+    oldPrice2.textContent = 0;
+
+    if (payNowCheckbox.checked) {
+        orderBtn.textContent = `Оплатить ${totalSum1.textContent} cом`;
+    }
 });
 
 deleteBtn3.addEventListener('click', () => {
     goodCard3.style.display = "none";
+    if (goodCheckbox3.checked) {
+        totalGoodsCount.textContent = +totalGoodsCount.textContent - +count3.value;
+        totalSum1.textContent = +totalSum1.textContent - +count3.value * 247;
+        totalSum2.textContent = +totalSum2.textContent - +count3.value * 475;
+        totalSale.textContent = +totalSale.textContent + +count3.value * (475 - 247);
+    }
+    count3.value = 0;
+    price3.textContent = 0;
+    oldPrice3.textContent = 0;
+
+    if (payNowCheckbox.checked) {
+        orderBtn.textContent = `Оплатить ${totalSum1.textContent} cом`;
+    }
 });
 
 deleteBtn4.addEventListener('click', () => {
@@ -310,21 +500,22 @@ const showGoodsIcon = document.querySelector('#show-goods-icon');
 const cartPanelLabel = document.querySelector('#cart-panel-label');
 const cartPanelText = document.querySelector('#cart-panel-text');
 
-const cartUnderline = document.querySelector('#cart-underline');
+const cartPanelGoodsCount = document.querySelector('#cart-panel-goods-count');
+const cartPanelTotalSum = document.querySelector('#cart-panel-total-sum');
 
 showGoodsBtn.addEventListener('click', () => {
     if(goodsContainer.style.display != "none") {
         goodsContainer.style.display = "none";
         showGoodsIcon.style.transform = "rotate(180deg)";
         cartPanelLabel.style.display = "none";
-        cartPanelText.style.display = "block";
-        cartUnderline.style.display = "block";
+        cartPanelText.style.display = "block"
+        cartPanelGoodsCount.textContent = totalGoodsCount.textContent;
+        cartPanelTotalSum.textContent = totalSum1.textContent;
     } else {
         goodsContainer.style.display = "flex";
         showGoodsIcon.style.transform = "rotate(0deg)";
         cartPanelLabel.style.display = "flex";
         cartPanelText.style.display = "none";
-        cartUnderline.style.display = "none";
     }
 
 });

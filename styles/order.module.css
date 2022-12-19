@@ -1,6 +1,8 @@
 /* ASIDE START */
 
 .order {
+    position: sticky;
+    top: 22px;
     background-color: #fff;
     width: 30%;
     height: max-content;
@@ -85,6 +87,10 @@
     cursor: pointer;
 }
 
+.order__date:hover {
+    border-bottom: 1px dashed rgba(203, 17, 171, 1);
+}
+
 .order__rules {
     color: #000;
     text-decoration: none;
@@ -97,6 +103,10 @@
     color: #0CB477;
     cursor: pointer;
     border-bottom: 1px dashed rgba(12, 180, 119, 0.2);
+}
+
+.green:hover {
+    border-bottom: 1px dashed rgba(12, 180, 119, 1);
 }
 
 .free-popup {
@@ -224,6 +234,7 @@
 
 @media(max-width: 995px) {
     .order {
+        position: static;
         width: 100%;
         padding: 24px 16px;
         margin-right: 0;

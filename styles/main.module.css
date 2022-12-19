@@ -10,9 +10,6 @@
 
 /* MAIN START */
 
-/* html {
-    max-width: 100vw;
-} */
 .body {
     background-color: #6725A8;
 }
@@ -34,6 +31,16 @@
     .main {
         width: 100%;
         /* padding: 16px; */
+    }
+}
+
+@media(min-width: 1574px) {
+    .body {
+        background-color: #F6F6FA;;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
     }
 }
 /* MAIN END */

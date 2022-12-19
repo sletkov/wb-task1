@@ -335,6 +335,10 @@
     cursor: pointer;
 }
 
+.good__price--old:hover {
+    border-bottom: 1px dashed rgba(0, 0, 0, 1);
+}
+
 .price-popup {
     padding: 16px 13px;
     background-color: #fff;
