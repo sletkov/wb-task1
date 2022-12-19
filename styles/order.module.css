@@ -150,6 +150,7 @@
 }
 
 .order__pay-now{
+    width: 100%;
     background-color: #F6F6FA;
     margin-top: 12px;
     padding: 8px;
